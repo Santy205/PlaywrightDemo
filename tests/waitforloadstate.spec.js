@@ -6,3 +6,4 @@ test("wait for load state",async function ({page}) {
     const count=await page.locator("//input[@type='checkbox']").count()
     expect(count).toBe(6)
 })
+// checking
