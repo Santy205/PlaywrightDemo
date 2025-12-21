@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const testdata = require('../testdata.json');
+const testdata = require('../testdata.json');     //for json file
 
 test('data driven json', async ({ page }) => {
   await page.goto('https://freelance-learn-automation.vercel.app/login');
