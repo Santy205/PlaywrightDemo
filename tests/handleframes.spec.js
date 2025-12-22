@@ -1,14 +1,14 @@
-const { test, expect } = require('@playwright/test');
-test.use({viewport:{width:1920,height:1080}})
+// const { test, expect } = require('@playwright/test');
+// test.use({viewport:{width:1920,height:1080}})
 
-test('handle frames', async ({ page }) => {
+// test('handle frames', async ({ page }) => {
 
-  await page.goto('https://docs.oracle.com/javase/8/docs/api/');
+//   await page.goto('https://docs.oracle.com/javase/8/docs/api/');
 
-  const iframe= await page.frameLocator("//frame[@name='packageListFrame']")
+//   const iframe= await page.frameLocator("//frame[@name='packageListFrame']")
   
-  await iframe.locator("//a[text()='java.applet']").click()
+//   await iframe.locator("//a[text()='java.applet']").click()
 
-  await page.pause
+//   await page.pause
 
-});
+// });
