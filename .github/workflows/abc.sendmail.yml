@@ -1,4 +1,4 @@
-name: send mail
+name: Playwright Tests + Email
 
 on:
   push:
@@ -10,8 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run tests
-        run: npm test
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test
 
       - name: Send Email Report
         if: always()
@@ -32,4 +43,4 @@ jobs:
             Run URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
           to: santosh55singhk@gmail.com
-          from: Santy Singh <singhsanty143@gmail.com>
+          from: GitHub Actions <${{ secrets.EMAIL_USERNAME }}>
