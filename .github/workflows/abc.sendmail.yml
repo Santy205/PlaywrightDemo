@@ -1,0 +1,35 @@
+name: send mail
+
+on:
+  push:
+
+jobs:
+  mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run tests
+        run: npm test
+
+      - name: Send Email Report
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+
+          subject: "${{ github.job }} job of ${{ github.repository }}"
+          body: |
+            Job: ${{ github.job }}
+            Workflow: ${{ github.workflow }}
+            Repository: ${{ github.repository }}
+            Status: ${{ job.status }}
+            Run URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          to: santosh55singhk@gmail.com
+          from: Santy Singh <singhsanty143@gmail.com>
