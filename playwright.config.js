@@ -39,7 +39,7 @@ export default defineConfig({
     viewport:{width:1920,height:720},
     //video:"on",
     screenshot:"on",
-    storageState: 'testdata/authentication.json'
+    //storageState: 'testdata/authentication.json'
   },
 
   /* Configure projects for major browsers */
