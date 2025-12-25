@@ -3,7 +3,7 @@ const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/loginpage');
 const HomePage = require('../pages/homepage');
 
-test('valid login', async ({ page }) => {
+test('valid login1', async ({ page }) => {
   await page.goto('https://freelance-learn-automation.vercel.app/login');
 
   const loginPage = new LoginPage(page);  //created object

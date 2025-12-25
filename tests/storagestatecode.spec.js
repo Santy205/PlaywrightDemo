@@ -14,10 +14,11 @@ test('valid login and save session', async ({ page, context }) => {
   await page.waitForURL(/dashboard/);
 
   // verify successful login
-  await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
+  await expect(page.getByRole('headng', { name: 'Dashboard' })).toBeVisible();
 
   // save auth state
   await context.storageState({
     path: 'testdata/authentication.json'
   });
 });
+i
