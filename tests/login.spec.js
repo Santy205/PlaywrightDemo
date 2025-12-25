@@ -26,6 +26,6 @@ test('valid login', async ({ page }) => {
   await page.locator('input[name="firstName"]').fill('abc');
   await page.locator('input[name="middleName"]').fill('abc');
   await page.locator('input[name="lastName"]').fill('abc');
-
+  
 
 });
