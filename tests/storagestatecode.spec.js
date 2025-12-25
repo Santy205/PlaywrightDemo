@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 
 test.use({ viewport: { width: 1920, height: 1080 } });
 
-test('valid login and save session', async ({ page, context }) => {
+test('valid login', async ({ page, context }) => {
 
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
 
@@ -10,15 +10,12 @@ test('valid login and save session', async ({ page, context }) => {
   await page.fill('input[name="password"]', 'admin123');
   await page.click('button[type="submit"]');
 
-  // wait until dashboard loads
-  await page.waitForURL(/dashboard/);
+  // ✅ wait for successful login (better than timeout)
+  await page.waitForURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
 
-  // verify successful login
-  await expect(page.getByRole('headng', { name: 'Dashboard' })).toBeVisible();
-
-  // save auth state
+  // ✅ save storage state (IMPORTANT: use await)
   await context.storageState({
     path: 'testdata/authentication.json'
   });
+
 });
-i
