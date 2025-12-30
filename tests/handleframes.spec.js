@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-test.use({viewport:{width:1920,height:1080}})
+test.use({viewport:{width:1366,height:768}})
 
 test('handle frames', async ({ page }) => {
 
