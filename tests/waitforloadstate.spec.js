@@ -1,4 +1,4 @@
-const{test,expect}= require('@playwright/test')
+const{test,expect, chromium}= require('@playwright/test')
 test("wait for load state",async function ({page}) {
     await page.goto("https://freelance-learn-automation.vercel.app/login")
     await page.getByText("New User? Signup").click()
@@ -7,5 +7,6 @@ test("wait for load state",async function ({page}) {
     await page.waitForTimeout(2000)
 
     expect(count).toBe(4)
+    
 })
 // checking
